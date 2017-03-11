@@ -1,0 +1,53 @@
+<admintpl file="header" />
+<script type="text/javascript">
+  function iover(obj){
+    var mm = obj.id;
+    obj.innerHTML = '<img width="100" height="80" src="'+mm+'"/>';
+  }
+
+  function iout(obj){
+    var nn = obj.title;
+    obj.innerHTML = nn;
+  }
+</script>
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap">
+  <ul class="nav nav-tabs">
+     <li class="active">
+     <a href="{:U('product/productlist')}">产品列表</a>
+     </li>
+  </ul>
+  <form class="J_ajaxForm" action="" method="post">
+    <div class="table_list">
+      <table width="100%" class="table table-hover">
+        <thead>
+	          <tr>
+                <th width="120">&nbsp;&nbsp;&nbsp;&nbsp;ID</th>
+                <th>&nbsp;&nbsp;&nbsp;产品名称</th>
+                <th>&nbsp;&nbsp;&nbsp;所属会员</th>
+                <th width="120">&nbsp;&nbsp;&nbsp;&nbsp;发布时间</th>
+                <th width="120">&nbsp;&nbsp;&nbsp;操作</th>
+	          </tr>
+        </thead>
+         <php>$status=array("1"=>"已审核","0"=>"未审核");</php>
+        	<foreach name="lists" item="vo">
+            <tr>
+                <td width="120">{$vo.id}</td>
+                <td width="200" title="{$vo.pname}" id="{$vo.pimg}" onmouseover="iover(this)" onmouseout="iout(this)">{$vo.pname}</td>
+                <td width="200">{$vo.mname}</td>
+                <td>{$vo.createtime}</td>
+                <td>
+                    <a href="{:U('product/recommend',array('id'=>$vo['id']))}" class="J_Ajax">推荐</a>|
+                    <a href="{:U('product/edit',array('id'=>$vo['id']))}">修改</a>|
+                    <a href="{:U('product/delete',array('id'=>$vo['id']))}" class="J_ajax_del" >删除</a>
+                </td>
+            </tr>
+          </foreach>
+      </table>
+    </div>
+  </form>
+</div>
+<script src="__ROOT__/statics/js/common.js{$js_debug}"></script>
+
+</body>
+</html>

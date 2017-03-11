@@ -1,0 +1,320 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>All Member - {$site_name}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="__TMPL__Public/images/ico.ico" type="image/ico">
+<link href="__TMPL__Public/shop/css/sindex.css" rel="stylesheet" type="text/css">
+<link href="__TMPL__Public/shop/css/public.css" rel="stylesheet" type="text/css">
+<link href="__TMPL__Public/simpleboot/font-awesome/4.2.0/css/font-awesome.min.css"  rel="stylesheet" type="text/css">
+<script type="text/javascript" src="__TMPL__Public/shop/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="__TMPL__Public/shop/js/ScrollPic.js"></script>
+<php> $a = 0;</php>
+</head>
+<body style="background:#fff;">
+
+<tc_include file="Public:shopnav" />
+<div class="container_2" style="padding-top:10px;">
+    	<!--<div class="recomendar_produtos_1"  id="tradesortbg">
+        	<ul class="recomendar_produtos" style=" height:255px; margin-bottom:10px;">
+        		<li id='nlmy'><a>Food</a></li>
+                <li id='ckzz'><a>Energy & Minerals</a></li>
+                <li id='drrq'><a>Petrochemical</a></li>
+                <li id='jzfc'><a>Building</a></li>
+                <li id='pfls'><a>Garment</a></li>
+                <li id='rjxx'><a>IT</a></li>
+                <li id='wtyl'><a>Culture & Sport</a></li>
+                <li id='gjzz'><a>Manufacture</a></li>
+<script type="text/javascript">
+
+	$(function(){
+
+		$("#nlmy").click(function(){
+
+			$.post('nlmy','',function(data){
+
+				data = eval('('+data+')');
+
+				if(data.info){$("#hyemember")("<h2>"+data.info+"</h2>");}else{
+
+				var htm1 = '';
+
+				for(var i=0;i<data.length;i++){
+
+					htm1 += '<dl class="list_6">'+'<dt><a href="memberinfo?id='+data[i].id+'"><img src="'+data[i].mlogo+'" width="190" height="180"  /></a></dt>
+						<dd style="color:#000;">Member Name：'+data[i].mname+'</dd>
+                        <dd>Industry：'+data[i].htypename+'</dd>
+                        <dd>Phone：'+data[i].tel+'</dd>
+                        <dd>Address：'+data[i].addr+'</dd>'+'</dl>';
+				}
+
+				$("#hyemember").html(htm1);
+
+				}
+
+			})
+
+		});
+
+
+
+		$("#ckzz").click(function(){
+
+			$.post('ckzz','',function(data){
+
+				data = eval('('+data+')');
+
+				if(data.info){$("#hyemember")("<h2>"+data.info+"</h2>");}else{
+
+				var htm1 = '';
+
+				for(var i=0;i<data.length;i++){
+
+					
+					htm1 += '<dl class="list_6">'+'<dt><a href="memberinfo?id='+data[i].id+'"><img src="'+data[i].mlogo+'" width="190" height="180"  /></a></dt>
+						<dd style="color:#000;">Member Name：'+data[i].mname+'</dd>
+                        <dd>Industry：'+data[i].htypename+'</dd>
+                        <dd>Phone：'+data[i].tel+'</dd>
+                        <dd>Address：'+data[i].addr+'</dd>'+'</dl>';
+
+				}
+
+				$("#hyemember").html(htm1);
+
+				}
+
+			})
+
+		});
+
+		$("#drrq").click(function(){
+
+			$.post('drrq','',function(data){
+
+				data = eval('('+data+')');
+
+				if(data.info){$("#hyemember")("<h2>"+data.info+"</h2>");}else{
+
+				var htm1 = '';
+
+				for(var i=0;i<data.length;i++){
+
+					
+					htm1 += '<dl class="list_6">'+'<dt><a href="memberinfo?id='+data[i].id+'"><img src="'+data[i].mlogo+'" width="190" height="180"  /></a></dt>
+						<dd style="color:#000;">Member Name：'+data[i].mname+'</dd>
+                        <dd>Industry：'+data[i].htypename+'</dd>
+                        <dd>Phone：'+data[i].tel+'</dd>
+                        <dd>Address：'+data[i].addr+'</dd>'+'</dl>';
+
+				}
+
+				$("#hyemember").html(htm1);
+
+				}
+
+			})
+
+		});
+
+
+
+		$("#jzfc").click(function(){
+
+			$.post('jzfc','',function(data){
+
+				data = eval('('+data+')');
+
+				if(data.info){$("#hyemember")("<h2>"+data.info+"</h2>");}else{
+
+				var htm1 = '';
+
+				for(var i=0;i<data.length;i++){
+
+					
+					htm1 += '<dl class="list_6">'+'<dt><a href="memberinfo?id='+data[i].id+'"><img src="'+data[i].mlogo+'" width="190" height="180"  /></a></dt>
+						<dd style="color:#000;">Member Name：'+data[i].mname+'</dd>
+                        <dd>Industry：'+data[i].htypename+'</dd>
+                        <dd>Phone：'+data[i].tel+'</dd>
+                        <dd>Address：'+data[i].addr+'</dd>'+'</dl>';
+				}
+
+				$("#hyemember").html(htm1);
+
+				}
+
+			})
+
+		});
+
+
+
+		$("#pfls").click(function(){
+
+			$.post('pfls','',function(data){
+
+				data = eval('('+data+')');
+
+				if(data.info){$("#hyemember")("<h2>"+data.info+"</h2>");}else{
+
+				var htm1 = '';
+
+				for(var i=0;i<data.length;i++){
+
+					
+					htm1 += '<dl class="list_6">'+'<dt><a href="memberinfo?id='+data[i].id+'"><img src="'+data[i].mlogo+'" width="190" height="180"  /></a></dt>
+						<dd style="color:#000;">Member Name：'+data[i].mname+'</dd>
+                        <dd>Industry：'+data[i].htypename+'</dd>
+                        <dd>Phone：'+data[i].tel+'</dd>
+                        <dd>Address：'+data[i].addr+'</dd>'+'</dl>';
+				}
+
+				$("#hyemember").html(htm1);
+
+				}
+
+			})
+
+		});
+
+
+
+		$("#rjxx").click(function(){
+
+			$.post('rjxx','',function(data){
+
+				data = eval('('+data+')');
+
+				if(data.info){$("#hyemember")("<h2>"+data.info+"</h2>");}else{
+
+				var htm1 = '';
+
+				for(var i=0;i<data.length;i++){
+
+					
+					htm1 += '<dl class="list_6">'+'<dt><a href="memberinfo?id='+data[i].id+'"><img src="'+data[i].mlogo+'" width="190" height="180"  /></a></dt>
+						<dd style="color:#000;">Member Name：'+data[i].mname+'</dd>
+                        <dd>Industry：'+data[i].htypename+'</dd>
+                        <dd>Phone：'+data[i].tel+'</dd>
+                        <dd>Address：'+data[i].addr+'</dd>'+'</dl>';
+				}
+
+				$("#hyemember").html(htm1);
+
+				}
+
+			})
+
+		});
+
+
+
+		$("#wtyl").click(function(){
+
+			$.post('wtyl','',function(data){
+
+				data = eval('('+data+')');
+
+				if(data.info){$("#hyemember")("<h2>"+data.info+"</h2>");}else{
+
+				var htm1 = '';
+
+				for(var i=0;i<data.length;i++){
+
+					
+					htm1 += '<dl class="list_6">'+'<dt><a href="memberinfo?id='+data[i].id+'"><img src="'+data[i].mlogo+'" width="190" height="180"  /></a></dt>
+						<dd style="color:#000;">Member Name：'+data[i].mname+'</dd>
+                        <dd>Industry：'+data[i].htypename+'</dd>
+                        <dd>Phone：'+data[i].tel+'</dd>
+                        <dd>Address：'+data[i].addr+'</dd>'+'</dl>';
+				}
+
+				$("#hyemember").html(htm1);
+
+				}
+
+			})
+
+		});
+
+
+
+		$("#gjzz").click(function(){
+
+			$.post('gjzz','',function(data){
+
+				data = eval('('+data+')');
+
+				if(data.info){$("#hyemember")("<h2>"+data.info+"</h2>");}else{
+
+				var htm1 = '';
+
+				for(var i=0;i<data.length;i++){
+
+					
+					htm1 += '<dl class="list_6">'+'<dt><a href="memberinfo?id='+data[i].id+'"><img src="'+data[i].mlogo+'" width="190" height="180"  /></a></dt>
+						<dd style="color:#000;">Member Name：'+data[i].mname+'</dd>
+                        <dd>Industry：'+data[i].htypename+'</dd>
+                        <dd>Phone：'+data[i].tel+'</dd>
+                        <dd>Address：'+data[i].addr+'</dd>'+'</dl>';
+
+				}
+
+				$("#hyemember").html(htm1);
+
+				}
+
+			})
+
+		});
+
+
+
+	});
+</script>
+            </ul>
+            <div class="recomendar_produtos">
+                <div class="title_3" style="height:36px;">
+                    <div class="left_4">Featured</div>
+                </div>
+                 <foreach name="tuimember" item="vo">
+				<dl class="list_5">
+                	<dt><a href="memberinfo.html?id={$vo.id}" target="_blank"><img src="{$vo.mlogo}" width="164" height="100"/></a></dt>
+                    <dd><a href="memberinfo.html?id={$vo.id}" target="_blank">{$vo.mname}</a></dd>
+                </dl>
+	 	  	  </foreach>
+            </div>
+        </div>
+        <!-- 所有产品 -->
+        <div class="all_produtos">
+            <div class="subpage" id='hangye'>
+            	<div class="title_4">All Member</div>
+                <p></p>
+                <div class="main_1" id='hyemember'>
+                <php>
+                    $produceall = sp_sql_approve_paged(" field:id,htypename,mlogo,mname,tel,addr;order:createtime DESC;",15);
+                </php>
+				<volist name="produceall['result']" id="all">
+                        <dl class="list_6">
+                    	<dt><a href="{:u('memberprod/memberinfo',array('id'=>$all['id']))}"><img src="{$all.mlogo}" width="190" height="180" /></a></dt>
+                        <dd style="color:#000;">Member Name：{$all.mname}</dd>
+                        <dd>Industry：{$all.htypename}</dd>
+                        <dd>Phone：{$all.tel}</dd>
+                        <dd>Address：{$all.addr}</dd>
+                    </dl>
+                </volist>
+                
+                </div>
+                <div class="pagination">
+                    <ul>
+                        {$produceall['page']}
+                    </ul>
+                </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- //所有产品 -->
+    </div><tc_include file="Public:shopfooter"/>
+</body>
+</html>

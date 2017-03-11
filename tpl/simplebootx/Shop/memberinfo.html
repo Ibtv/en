@@ -1,0 +1,109 @@
+<!doctype html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8">
+
+<title>Member Details - {$site_name}</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="__TMPL__Public/images/ico.ico" type="image/ico">
+<link href="__TMPL__Public/shop/css/sindex.css" rel="stylesheet" type="text/css">
+<link href="__TMPL__Public/shop/css/public.css" rel="stylesheet" type="text/css">
+<link href="__TMPL__Public/simpleboot/font-awesome/4.2.0/css/font-awesome.min.css"  rel="stylesheet" type="text/css">
+<script type="text/javascript" src="__TMPL__Public/shop/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="__TMPL__Public/shop/js/ScrollPic.js"></script>
+
+</head>
+
+<body style="background:#fff;">
+
+
+
+<tc_include file="Public:shopnav" />
+
+<div class="container_4">
+
+    	<div class="title_9"><a href="{:u('memberprod/index')}">Home</a> ><a href="{:u('memberprod/member')}">All Member</a> > {$mb[mname]}</div>
+
+        <div class="introduction_membership">
+
+        	<h3>Members Introduction</h3>
+
+            <div class="layout">
+
+            	<div class="left_5">
+
+                	<img src="{$mb['mlogo']}" alt="img" />
+
+                </div>
+
+                <div class="right">
+
+                	<h2>{$mb[mname]}</h2>
+
+
+                    <p>{$mb.comm}</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="introduction_membership_1">
+
+        	<div class="membership_info" style="margin-right:10px;">
+
+            	<h3>Membership Information</h3>
+
+                <div class="msg_1">
+
+                	<p>Address</p>
+
+                    <p style='line-height:20px; font-size:12px; color:#000; font-family:"宋体";'>{$mb['addr']}</p>
+
+                    <p>Industry</p>
+
+                    <p style='line-height:20px; font-size:12px; color:#000; font-family:"宋体";'>{$mb['htypename']}</p>
+
+                    <p>Contact</p>
+
+                    <p style='line-height:20px; font-size:12px; color:#000; font-family:"宋体";'>Phone：{$mb['tel']}</p>
+
+                    <p style='line-height:20px; font-size:12px; color:#000; font-family:"宋体";'>Mailbox：{$mb['memail']}</p>
+
+                </div>
+
+            </div>
+
+            <div class="product_display_a">
+
+            	<h3>Products</h3>
+
+                <foreach name="mpro" item="vo">
+
+                <dl class="list_9">
+
+                	<dt><a href="{:u('memberprod/productinfo',array('id'=>$fo['id']))}"><img src="{$vo.pimg}" alt="img" /></a></dt>
+
+                    <dd><a style="color:#26539c;" href="{:u('memberprod/productinfo',array('id'=>$fo['id']))}">{$vo.pname}</a></dd>
+
+                    <dd><a href="{:u('memberprod/productinfo',array('id'=>$fo['id']))}">Recommend Price：<span>{$vo.price}</span></a></dd>
+
+                </dl>
+
+			</foreach>
+
+            </div>
+
+        </div>
+
+    </div><tc_include file="Public:shopfooter"/>
+
+</body>
+
+</html>
+

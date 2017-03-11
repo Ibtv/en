@@ -1,0 +1,62 @@
+
+    <div id="header">
+    	<div id="topnav">
+        	<ul style="float:left; width:940px">
+            	<a href="http://sc.ibtv.cc" title="中/简">中/简</a>┊
+        		<a href="http://tc.ibtv.cc" title="中/繁">中/繁</a>┊
+                <a href="http://en.ibtv.cc" title="English">English</a>┊
+                <a href="http://ar.ibtv.cc" title="العربية">العربية</a>┊
+                <a href="http://fr.ibtv.cc" title="Français">Français</a>┊
+                <a href="http://es.ibtv.cc" title="Español">Español</a>┊
+                <a href="http://ru.ibtv.cc" title="Русский">Русский</a>┊
+                <a href="http://pt.ibtv.cc" title="Português">Português</a>┊
+                <a href="http://de.ibtv.cc" title="Deutsch">Deutsch</a>┊
+            	<a href="http://kr.ibtv.cc" title="한국어">한국어</a>┊
+                <a href="http://it.ibtv.cc" title="Italia">Italia</a>┊
+            	<a href="http://ja.ibtv.cc" title="日本">日本</a>
+			</ul>
+				<span><if condition="sp_is_user_login()">
+                           <a href="{:u('user/center/index')}"><i class="fa fa-user"></i> {$user.user_nicename}</a>┊
+                           <a href="{:u('user/index/logout')}"><i class="fa fa-sign-out"></i> &nbsp;退出</a>
+	        	<else/>
+	            <a href="{:u('user/login/index')}"class="dropdown-toggle"><i class="fa fa-sign-in"></i> &nbsp;登录</a>
+	        	</if></span>
+        </div>
+        <div id="header_main">
+        	<div id="logo">
+            	<a href="__ROOT__/" title="LOGO">
+            		<img  onerror="nofind();" src="__TMPL__Public/images/main.png"/>
+                </a>
+            </div>
+            <div id="search">
+            <form role="form" method="post" action="{:u('/Search')}">           
+            	<input type="text" class="searchInput" name="keyword" required="required"/>
+                <input type="submit" class="searchbar" value="search" />
+            </form>
+            </div>
+        </div>
+        <!-- nav -->
+        <div class="nav">
+        
+        	<a href="{:u('list/index',array('id'=>110))}" title="News">News</a> | 
+
+            <a href="{:u('list/index',array('id'=>120))}" title="Trade">Trade</a> | 
+
+            <a href="{:u('list/index',array('id'=>130))}" title="Investment">Investment</a> | 
+
+            <a href="{:u('list/index',array('id'=>140))}" title="Sci-Tech">Sci-Tech</a> | 
+
+            <a href="{:u('list/index',array('id'=>150))}" title="Travel">Travel</a> | 
+
+            <a href="{:u('list/index',array('id'=>160))}" title="Culture">Culture</a> | 
+
+            <a href="{:u('list/index',array('id'=>170))}" title="Interview">Interview</a> | 
+
+            <a href="{:u('list/index',array('id'=>180))}" title="Business Guide">Business Guide</a> | 
+
+            <a href="{:u('list/index',array('id'=>190))}" title="Opportunity">Opportunity</a> |
+
+            <a href="/shop" title="Member">Member</a>
+        </div>
+        <!-- //nav -->
+    </div>

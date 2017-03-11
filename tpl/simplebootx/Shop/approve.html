@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{$site_name}</title>
+<meta name="keywords" content="{$site_seo_keywords}" />
+<meta name="description" content="{$site_seo_description}">
+<meta name="author" content="ThinkCMF">
+<tc_include file="Public:head" />
+<style type="text/css">
+.tab-content{overflow: visible;}
+
+.uploaded_avatar_area{
+	margin-top: 20px;
+}
+.uploaded_avatar_btns{
+	margin-top: 20px;
+}
+.uploaded_avatar_area .uploaded_avatar_btns{display: none;}
+</style>
+</head>
+<body class="body-white" id="top">
+	<tc_include file="Public:nav" />
+
+		<div class="container tc-main">
+                <div class="row">
+                    <div class="span3">
+	                    <tc_include file="Public:usernav"/>
+                    </div>
+                    <div class="span9">
+                           <div class="tabs">
+                               <ul class="nav nav-tabs">
+                                   <li class="active"><a href="#one" data-toggle="tab"><i class="fa fa-list-alt"></i> 认证申请</a></li>
+                               </ul>
+                               <div class="tab-content">
+                                   <div class="tab-pane active" id="one">
+                                   		<form class="form-horizontal J_ajaxForm" action="{:u('product/appd')}" method="post">
+                                        <div class="control-group">
+                                          <label class="control-label" for="input-htypeid">*认证类型：</label><h4 style="font-size:16px;margin-top: 5px;">企业官方认证</h4>
+                                          <div class="controls">有营业执照的各类企业、公司等企业官方帐号均可申请企业认证。
+                                          </div>
+                                        </div>
+                                   			<div class="control-group">
+                                   				<label class="control-label" for="input-htypeid">*认证行业类别：</label>
+                                   				<div class="controls">
+                                   					<select name="htypeid">
+                                              <option value='0'>Please Choose</option>
+                                              <option value='1'>Food</option>
+                                              <option value='2'>Energy & Minerals</option>
+                                              <option value='3'>Petrochemical</option>
+                                              <option value='4'>Building</option>
+                                              <option value='5'>Garment</option>
+                                              <option value='6'>IT</option>
+                                              <option value='7'>Culture & Sport</option>
+                                              <option value='8'>Manufacture</option>
+                                              </select>
+                                   				</div>
+                                   			</div>
+                                   			<div class="control-group">
+                                   				<label class="control-label" for="input-mname">*企业全称：</label>
+                                   				<div class="controls">
+                                   					<input type="text" id="input-mname" placeholder="企业全称" name="mname" >
+                                   				</div>
+                                   			</div>
+                                        <div class="control-group">
+                                          <label class="control-label" for="input-mlogo">*企业Logo：</label>
+                                          <div class="controls">
+                                          <input type="file" name="img4" id="input-mlogo" />
+                                          </div>
+                                        </div>
+                                        <div class="control-group">
+                                          <label class="control-label" for="input-memail">*企业邮箱：</label>
+                                          <div class="controls">
+                                            <input type="text" id="input-memail" placeholder="企业邮箱" name="memail" >
+                                          </div>
+                                        </div>
+                                        <div class="control-group">
+                                          <label class="control-label" for="input-addr">*官方地址：</label>
+                                          <div class="controls">
+                                            <input type="text" id="input-addr" placeholder="官方地址" name="addr" >
+                                          </div>
+                                        </div>
+                                        <div class="control-group">
+                                          <label class="control-label" for="input-url">*官方网址：</label>
+                                          <div class="controls">
+                                            <input type="text" id="input-url" placeholder="官方网址" name="url" >
+                                          </div>
+                                        </div>
+                                        <div class="control-group">
+                                          <label class="control-label" for="input-lxiname">*联系人姓名：</label>
+                                          <div class="controls">
+                                            <input type="text" id="input-lxiname" placeholder="联系人姓名" name="lxiname" >
+                                          </div>
+                                        </div>
+                                        <div class="control-group">
+                                          <label class="control-label" for="input-tel">*联系手机：</label>
+                                          <div class="controls">
+                                            <input type="text" id="input-tel" placeholder="联系手机" name="tel" >
+                                          </div>
+                                        </div>
+                                   			<div class="control-group">
+                                   				<label class="control-label" for="input-license">*营业执照：</label>
+                                   				<div class="controls">
+		                                   		<input type="file" name="img" id="input-license" />
+		                                   		</div>
+	                                   		</div>
+                                        <div class="control-group">
+                                          <div class="controls">
+                                            请上传营业执照最新年检副本的扫面件或照片
+                                          </div>
+                                        </div>
+                                        <div class="control-group">
+                                          <label class="control-label" for="input-numblicense">*营业执照注册号：</label>
+                                          <div class="controls">
+                                            <input type="text" id="input-numblicense" placeholder="营业执照注册号" name="numblicense" >
+                                          </div>
+                                        </div>
+                                        <div class="control-group">
+                                          <label class="control-label" for="input-mletter">*企业公函：</label>
+                                          <div class="controls">
+                                          <input type="file" name="img1" id="input-mletter" />
+                                          </div>
+                                        </div>
+                                        <div class="control-group">
+                                          <label class="control-label" for="input-othero">其他材料1：</label>
+                                          <div class="controls">
+                                          <input type="file" name="img2" id="input-othero" />
+                                          </div>
+                                        </div>
+                                        <div class="control-group">
+                                          <label class="control-label" for="input-othert">其他材料2：</label>
+                                          <div class="controls">
+                                          <input type="file" name="img3" id="input-othert" />
+                                          </div>
+                                        </div>
+                                   			<div class="control-group">
+                                   				<div class="controls">
+                                   					<button type="submit" class="btn J_ajax_submit_btn">提交认证</button>
+                                   				</div>
+                                   			</div>
+                                   		</form>
+                                   </div>
+                               </div>							
+                           </div>
+                    </div>
+                </div><tc_include file="Public:shopfooter"/>
+
+	</div>
+	<!-- /container -->
+
+	<tc_include file="Public:scripts" />
+</body>
+</html>

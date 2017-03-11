@@ -1,0 +1,33 @@
+@charset "utf-8";
+/* CSS Document */
+body { font-family:"宋体"; color:#000;background: #12182e;}
+* { margin:0; padding:0; list-style:none; border:none;}
+body a { text-decoration:none;}
+#wrap { min-width:1200px;overflow:hidden; margin:0 auto;background: #FFF;}
+
+/* header */
+#header { width:1200PX; margin:0 auto; height:200px; border-bottom:#c5c7c8 5px solid;}
+#header #topnav, #header .nav { padding:0 15px; width:1168px; background:#fff; border-radius:0 0 5px 5px;}
+#header #topnav { height:45px; border:#a2aba6 1px solid;}
+#header #topnav a, #header #topnav span a, #header .nav a { line-height:45px; font-size:18px; font-family:"Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif; color:#000;}
+#header #topnav a { padding:0 5px;}
+#header #topnav span { float:right}
+#header #header_main { width:1200px; height:101px;}
+#header #header_main #logo, #header #header_main #logo img { width:203px; height:74px;}
+#header #header_main #logo { float:left; padding:13px 0 0 96px;}
+#header #header_main #search { float:right; width:305px; height:27px; padding-top:34px; padding-right:70px;}
+#header #header_main #search .searchInput { float:left; width:230px; height:26px; border-top:#8eaa9e 1px solid; border-right:#8eaa9e 1px solid; background:#fff; text-indent:5px;}
+#header #header_main #search .searchbar { float:left; width:74px; height:27px; text-align:center; color:#5b6f64; font-size:16px; border-top:#8eaa9e 1px solid;}
+/*nav*/
+#header .nav { height:51px; border-top:#a2aba6 1px solid; border-left:#a2aba6 1px solid; border-right:#a2aba6 1px solid; border-radius:5px 5px 0 0;}
+#header .nav a { padding:0 11.5px; line-height:52px;}
+
+/* container */
+#container { width:1200px; overflow:hidden; margin:0 auto; padding:2px 0 9px;}
+/* footer */
+#footer { width: 1200px; height:195px;margin: 0 auto;}
+#footer .foot { width:1200px; margin:0 auto;}
+#footer .foot .sidebar_left { float:left; width:925px; margin-top: 60px;}
+#footer .foot .sidebar_left .list_6 { text-align: center;margin:0 auto; height:28px; line-height:28px; color:#fff; font-size:12px;}
+#footer .foot .sidebar_left .list_6 a { line-height:28px; padding:0 14px; color:#fff; font-size:12px;}
+#footer .foot .sidebar_right { float:left; width:275px; height:95px; margin-top:38px;}

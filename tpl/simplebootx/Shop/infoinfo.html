@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>All info - {$site_name}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="__TMPL__Public/images/ico.ico" type="image/ico">
+<link href="__TMPL__Public/shop/css/sindex.css" rel="stylesheet" type="text/css">
+<link href="__TMPL__Public/shop/css/public.css" rel="stylesheet" type="text/css">
+<link href="__TMPL__Public/simpleboot/font-awesome/4.2.0/css/font-awesome.min.css"  rel="stylesheet" type="text/css">
+<script type="text/javascript" src="__TMPL__Public/shop/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="__TMPL__Public/shop/js/ScrollPic.js"></script>
+</head>
+<body>
+<div class="container_4" style="margin-top:10px; margin-bottom:27px;">
+<tc_include file="Public:shopnav" />
+    	<div class="sidebar_a">
+        	<div class="atividades_recentes" style=" margin-bottom:10px;">
+            	<div class="title_10">News activities</div>
+                <ul class="list_10">
+            <foreach name="activities" item="vo" >
+            	<li><a href="{:u('memberprod/activityinfo',array('id'=>$vo['id']))}">{$vo.sname}</a></li>
+            </foreach>
+                </ul>
+            </div>
+            <div class="atividades_recentes">
+            	<div class="title_10">Latest News</div>
+                <ul class="list_10">
+                <foreach name="latestnews" item="vo" >
+                    <li><a href="{:u('memberprod/infoinfo',array('id'=>$vo['id']))}">{$vo.title}</a></li>
+                </foreach>
+                </ul>
+            </div>
+        </div>
+        <div class="sidebar_b">
+        	<div class="title_11"><a href="{:u('memberprod/index')}">Home</a> ><a href="{:u('memberprod/info')}">All info</a> > {$sm.title}</div>
+            <div class="submenu">
+            	<h4>{$sm.title}</h4>
+                <h5>{$sm.createtime}</h5>
+                <p>{$sm.comm}</p>
+                <!--div class="indice">国际商务电视台</div>
+                <div class="indice">
+                	<ul class="list_11">
+                    	<li><img src="pic/img_9.jpg" alt="img" /></li>
+                        <li><img src="pic/img_10.jpg" alt="img" /></li>
+                        <li><img src="pic/img_11.jpg" alt="img" /></li>
+                        <li><img src="pic/img_12.jpg" alt="img" /></li>
+                        <li><img src="pic/img_13.jpg" alt="img" /></li>
+                    </ul>
+                    <div class="share">分享到：</div>
+                </div-->
+            </div>
+        </div>
+    </div><tc_include file="Public:shopfooter"/>
+</body>
+</html>

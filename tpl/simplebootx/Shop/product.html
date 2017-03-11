@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>All products - {$site_name}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="__TMPL__Public/images/ico.ico" type="image/ico">
+<link href="__TMPL__Public/shop/css/sindex.css" rel="stylesheet" type="text/css">
+<link href="__TMPL__Public/shop/css/public.css" rel="stylesheet" type="text/css">
+<link href="__TMPL__Public/simpleboot/font-awesome/4.2.0/css/font-awesome.min.css"  rel="stylesheet" type="text/css">
+<script type="text/javascript" src="__TMPL__Public/shop/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="__TMPL__Public/shop/js/ScrollPic.js"></script>
+<php> $a = 0;</php>
+</head>
+<body style="background:#fff;">
+
+<tc_include file="Public:shopnav" />
+<div class="container_2" style="padding-top:10px;">
+    	<!--div class="recomendar_produtos_1">
+        	<div class="recomendar_produtos">
+                <div class="title_3" style="height:36px;">
+                    <div class="left_4">Products</div>
+                </div>
+	<foreach name='tuiprod' item='vo'>
+
+		<dl class="list_5">
+               		<dt><img src="{$vo.pimg}" alt="img" width="137" height="135" /></dt>
+                    <dd><a href="productinfo.html?id={$vo.id}" target="_blank">{$vo.pname}</a></dd>
+                </dl>
+
+	</foreach>
+            </div>
+        </div>
+        <!-- 所有产品 -->
+        <div class="all_produtos">
+            <div class="subpage">
+            	<div class="title_4">All products</div>
+                <p></p>
+                <div class="main_1">
+                <php>
+                    $produceall = sp_sql_produce_paged("field:id,pimg,pname,comm;order:createtime DESC;",15);
+                </php>
+				<volist name="produceall['result']" id="all">
+                        <dl class="list_6">
+                            <dt><a href="{:u('memberprod/productinfo',array('id'=>$all['id']))}" target="_blank">
+                            <img src="{$all['pimg']}" alt="{$all.pname}" title="{$all.pname}" width="135" height="135" />
+                            </a></dt>
+                            <dd><a href="{:u('memberprod/productinfo',array('id'=>$all['id']))}" target='_blank'>{$all.pname}</a></dd>
+                            <dd style="font-size:12px; color:#3b3b3b; font-family:"宋体";">{$all.comm}</dd>
+                        </dl>
+                </volist>
+    
+                </div>
+                
+                <div class="pagination">
+                    <ul>
+                        {$produceall['page']}
+                    </ul>
+                </div>
+    
+                </div>
+            </div>
+        </div>
+        <!-- //所有产品 -->
+    </div><tc_include file="Public:shopfooter"/>
+</body>
+</html>

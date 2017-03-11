@@ -1,0 +1,11 @@
+        <div id="links">
+        	<div id="linkw">
+            	<h3>links</h3>
+                <div class="links">
+                <php>$links=sp_getlinks();</php>
+                <foreach name="links" item="vo">
+                  <a href="{$vo.link_url}" target="{$vo.link_target}">{$vo.link_name}</a>┊
+                </foreach>
+                </div>
+            </div>
+        </div>

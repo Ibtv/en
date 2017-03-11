@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{$site_name}</title>
+<meta name="keywords" content="{$site_seo_keywords}" />
+<meta name="description" content="{$site_seo_description}">
+<meta name="author" content="ThinkCMF">
+<tc_include file="Public:head" />
+<style type="text/css">
+.tab-content{overflow: visible;}
+
+.uploaded_avatar_area{
+	margin-top: 20px;
+}
+.uploaded_avatar_btns{
+	margin-top: 20px;
+}
+.uploaded_avatar_area .uploaded_avatar_btns{display: none;}
+</style>
+</head>
+<body class="body-white" id="top">
+	<tc_include file="Public:nav" />
+
+		<div class="container tc-main">
+                <div class="row">
+                    <div class="span3">
+	                    <tc_include file="Public:usernav"/>
+                    </div>
+                    <div class="span9">
+                           <div class="tabs">
+                               <ul class="nav nav-tabs">
+                                   <li class="active"><a href="#one" data-toggle="tab"><i class="fa fa-list-alt"></i> Product Upload</a></li>
+                               </ul>
+                               <div class="tab-content">
+                                   <div class="tab-pane active" id="one">
+                                   		<form class="form-horizontal J_ajaxForm" action="{:u('product/addact')}" method="post">
+                                   			<div class="control-group">
+                                   				<label class="control-label" for="input-pname">Product Name</label>
+                                   				<div class="controls">
+                                   					<input type="text" id="input-pname" placeholder="Product Name" name="pname" value="{$pname}">
+                                   				</div>
+                                   			</div>
+                                   			<div class="control-group">
+                                   				<label class="control-label" for="input-price">Price</label>
+                                   				<div class="controls">
+                                   					<input type="text" id="input-price" placeholder="Price" name="price" value="{$price}">
+                                   				</div>
+                                   			</div>
+                                   			<div class="control-group">
+                                   				<label class="control-label" for="input-pimg">Product Image</label>
+                                   				<div class="tab-content">
+                                            <input type="file" id="input-pimg" name="img" style="margin-left:20px;"/>
+                                          </div>
+                                        </div> 
+                                   			<div class="control-group">
+                                   				<label class="control-label" for="input-comm">Products</label>
+                                   				<div class="controls">
+                                   					<textarea id="input-comm" placeholder="Products" name="comm">{$comm}</textarea>
+                                   				</div>
+                                   			</div>
+                                   			<div class="control-group">
+                                          <label class="control-label" for="input-status">Whether the recommended</label>
+                                          <div class="controls">
+                                            <input type="radio" checked="checked" name='status' value='0'>Not recommended
+                                            <input type='radio' name='status' value='1' >Recommendation
+                                          </div>
+                                        </div>
+                                   			<div class="control-group">
+                                   				<div class="controls">
+                                   					<button type="submit" class="btn J_ajax_submit_btn">Submit</button>
+                                   				</div>
+                                   			</div>
+                                   		</form>
+                                   </div>
+                               </div>							
+                           </div>
+                    </div>
+                </div><tc_include file="Public:shopfooter"/>
+
+	</div>
+	<!-- /container -->
+
+	<tc_include file="Public:scripts" />
+</body>
+</html>

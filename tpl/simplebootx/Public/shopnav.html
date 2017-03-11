@@ -1,0 +1,351 @@
+    <div id="top">
+    	<a href="__ROOT__/"><div id="top_main_chi"></div></a>
+    </div>
+    <!-- top_nav_a -->
+    <div id="top_nav_a">
+    	<div id="layout_a">
+        	<div class="icon"><a href="__ROOT__/"><img onerror="nofind();" src="__TMPL__Public/shop/img/icon.jpg" /></a></div>
+            <div class="member_shop_chi"><a href="__ROOT__/shop"><img onerror="nofind();" src="__TMPL__Public/shop/img/member_shop_chi.jpg" /></a></div>
+            <div class="search">
+            
+                  <form action='search' method='post'>
+                    <div id="search_output">
+            <!--select name='type' class="search_1" >
+
+                <option value='0'>產品</option>
+
+                <option value='1'>會員</option>
+
+            </select-->  
+                    </div>  
+                    <div id="searchInput">                        
+                	<input name="sear" type="text" placeholder="input" maxlength=16  required class="search_txt"id="search_txt" value="请输入会员或产品信息查询" />
+                    
+                	<input type="submit" class="search_btn" value/>
+                    </div>
+                    
+                </form>
+                
+            </div>
+            <script type="text/javascript">
+            	$(function(){
+					$("#search_txt").val("请输入会员或产品信息查询...").addClass("col_a").blur(function(){
+						if($(this).val() == ""){
+							$("#search_txt").val("请输入会员或产品信息查询...").addClass("col_a");	
+						}
+					}).focus(function(){
+						if($("#search_txt").val() == "请输入会员或产品信息查询..."){
+							$("#search_txt").val("").removeClass("col_a");	
+						}	
+					})	
+				})
+            </script>
+            <ul class="login_chi">
+            <if condition="sp_is_user_login()">
+            <div id="msg" style="width:30px; height:30px;float: left;">
+	            <if condition="empty($user['avatar'])">
+	            <img onerror="nofind();" src="__TMPL__/Public/images/headicon.png" width="30" height="30"/>
+	            <else/>
+	            <img onerror="nofind();" src="{:sp_get_user_avatar_url($user['avatar'])}" width="30" height="30"/>
+	            
+	        </if>
+            </div>
+            	<li><a href="{:u('user/center/index')}">{$user.user_nicename}</a></li>
+                <li><i class="fa fa-power-off" style="margin-right:20px"></i><a href="{:u('user/index/logout')}">退出</a></li>
+	        <else/>
+            	<li><i class="fa fa-user" style="margin-right:20px"></i><a href="{:u('user/login/index')}">登錄</a></li>
+                <li><i class="fa fa-key" style="margin-right:20px"></i><a href="{:u('user/login/forgot_password')}">找回密码</a></li>
+	        </if>
+            </ul>
+        </div>
+    </div>
+    <!-- //top_nav_a -->
+    <!-- 导航 -->
+    <div id="top_nav_b">
+    	<div class="right_nav">
+        	<a href="{:u('memberprod/member')}">會員</a>
+            <a href="{:u('memberprod/product')}">產品</a>
+            <a href="{:u('memberprod/activity')}">活動</a>
+            <a href="{:u('memberprod/info')}">信息</a>
+            <a href="#">服务</a>
+        </div>
+    </div>
+
+<div id="wrap">
+    	<!-- banner -->
+        <div class="container">
+        	<!-- left -->
+            <ul class="side_a">
+            	<li>
+               		<i class="fa fa-cutlery" style="margin-right:20px"></i>食品
+                    <p class="p_line"></p>
+                    <div class="menu_side">
+                        <php>
+                        	$food = sp_sql_approve("htypeid:1;field:id,mlogo,mname;order:createtime DESC;limit:6;");
+                        </php>
+                        <foreach name="food" item="fo">
+                            <div class="side_b">
+                                <div class="img_menu">
+                                    <a href="{:u('memberprod/memberinfo',array('id'=>$fo['id']))}" title="{$fo.mname}">
+                                        <img onerror="nofind();" src="{$fo.mlogo}" alt="{$fo.mname}" title="{$fo.mname}"/>
+                                    </a>
+                                </div>
+                                <div class="tips_side">
+                                    <a href="{:u('memberprod/memberinfo',array('id'=>$fo['id']))}" title="{$fo.mname}">{$fo.mname}</a>
+                                </div>
+                            </div>
+                		</foreach>
+                    </div>
+                </li>
+                <li class="bg_b">
+                	<i class="fa fa-bolt" style="margin-right:20px"></i>能源礦產
+                    <p class="p_line"></p>
+                    <div class="menu_side">
+                        <php>
+                        	$energy = sp_sql_approve("htypeid:2;field:id,mlogo,mname;order:createtime DESC;limit:6;");
+                        </php>
+                        <foreach name="energy" item="en">
+                            <div class="side_b">
+                                <div class="img_menu">
+                                    <a href="{:u('memberprod/memberinfo',array('id'=>$en['id']))}" title="{$en.mname}">
+                                        <img onerror="nofind();" src="{$en.mlogo}" alt="{$en.mname}" title="{$en.mname}"/>
+                                    </a>
+                                </div>
+                                <div class="tips_side">
+                                    <a href="{:u('memberprod/memberinfo',array('id'=>$en['id']))}" title="{$en.mname}">{$en.mname}</a>
+                                </div>
+                            </div>
+                		</foreach>
+                    </div>
+                </li>
+                <li class="bg_c">
+                	<i class="fa fa-flask" style="margin-right:20px"></i>石化
+                    <p class="p_line"></p>
+                    <div class="menu_side">
+                        <php>
+                        	$petrifaction = sp_sql_approve("htypeid:3;field:id,mlogo,mname;order:createtime DESC;limit:6;");
+                        </php>
+                        <foreach name="petrifaction" item="pe">
+                            <div class="side_b">
+                                <div class="img_menu">
+                                    <a href="{:u('memberprod/memberinfo',array('id'=>$pe['id']))}" title="{$pe.mname}">
+                                        <img onerror="nofind();" src="{$pe.mlogo}" alt="{$pe.mname}" title="{$pe.mname}"/>
+                                    </a>
+                                </div>
+                                <div class="tips_side">
+                                    <a href="{:u('memberprod/memberinfo',array('id'=>$pe['id']))}" title="{$pe.mname}">{$pe.mname}</a>
+                                </div>
+                            </div>
+                		</foreach>
+                    </div>
+                </li>
+                <li class="bg_d">
+                	<i class="fa fa-home" style="margin-right:20px"></i>建築
+                    <p class="p_line"></p>
+                    <div class="menu_side">
+                        <php>
+                        	$building = sp_sql_approve("htypeid:4;field:id,mlogo,mname;order:createtime DESC;limit:6;");
+                        </php>
+                        <foreach name="building" item="bu">
+                            <div class="side_b">
+                                <div class="img_menu">
+                                    <a href="{:u('memberprod/memberinfo',array('id'=>$bu['id']))}" title="{$bu.mname}">
+                                        <img onerror="nofind();" src="{$bu.mlogo}" alt="{$bu.mname}" title="{$bu.mname}"/>
+                                    </a>
+                                </div>
+                                <div class="tips_side">
+                                    <a href="{:u('memberprod/memberinfo',array('id'=>$bu['id']))}" title="{$bu.mname}">{$bu.mname}</a>
+                                </div>
+                            </div>
+                		</foreach>
+                    </div>
+                </li>
+                <li class="bg_e">
+                	<i class="fa fa-female" style="margin-right:20px"></i>服裝
+                    <p class="p_line"></p>
+                    <div class="menu_side">
+                        <php>
+                        	$clothing = sp_sql_approve("htypeid:5;field:id,mlogo,mname;order:createtime DESC;limit:6;");
+                        </php>
+                        <foreach name="clothing" item="cl">
+                            <div class="side_b">
+                                <div class="img_menu">
+                                    <a href="{:u('memberprod/memberinfo',array('id'=>$cl['id']))}" title="{$cl.mname}">
+                                        <img onerror="nofind();" src="{$cl.mlogo}" alt="{$cl.mname}" title="{$cl.mname}"/>
+                                    </a>
+                                </div>
+                                <div class="tips_side">
+                                    <a href="{:u('memberprod/memberinfo',array('id'=>$cl['id']))}" title="{$cl.mname}">{$cl.mname}</a>
+                                </div>
+                            </div>
+                		</foreach>
+                    </div>
+                </li>
+                <li class="bg_f">
+                	<i class="fa fa-desktop" style="margin-right:20px"></i>IT
+                    <p class="p_line"></p>
+                    <div class="menu_side">
+                        <php>
+                        	$it = sp_sql_approve("htypeid:6;field:id,mlogo,mname;order:createtime DESC;limit:6;");
+                        </php>
+                        <foreach name="it" item="it">
+                            <div class="side_b">
+                                <div class="img_menu">
+                                    <a href="{:u('memberprod/memberinfo',array('id'=>$it['id']))}" title="{$it.mname}">
+                                        <img onerror="nofind();" src="{$it.mlogo}" alt="{$it.mname}" title="{$it.mname}"/>
+                                    </a>
+                                </div>
+                                <div class="tips_side">
+                                    <a href="{:u('memberprod/memberinfo',array('id'=>$it['id']))}" title="{$it.mname}">{$it.mname}</a>
+                                </div>
+                            </div>
+                		</foreach>
+                    </div>
+                </li>
+                <li class="bg_g">
+                	<i class="fa fa-futbol-o" style="margin-right:20px"></i>文化體育
+                    <p class="p_line"></p>
+                    <div class="menu_side">
+                        <php>
+                        	$culture = sp_sql_approve("htypeid:7;field:id,mlogo,mname;order:createtime DESC;limit:6;");
+                        </php>
+                        <foreach name="culture" item="cu">
+                            <div class="side_b">
+                                <div class="img_menu">
+                                    <a href="{:u('memberprod/memberinfo',array('id'=>$cu['id']))}" title="{$cu.mname}">
+                                        <img onerror="nofind();" src="{$cu.mlogo}" alt="{$cu.mname}" title="{$cu.mname}"/>
+                                    </a>
+                                </div>
+                                <div class="tips_side">
+                                    <a href="{:u('memberprod/memberinfo',array('id'=>$cu['id']))}" title="{$cu.mname}">{$cu.mname}</a>
+                                </div>
+                            </div>
+                		</foreach>
+                    </div>
+                </li>
+                <li class="bg_h">
+                	<i class="fa fa-cogs" style="margin-right:20px"></i>製造
+                    <p class="p_line"></p>
+                    <div class="menu_side">
+                        <php>
+                        	$manufacture = sp_sql_approve("htypeid:8;field:id,mlogo,mname;order:createtime DESC;limit:6;");
+                        </php>
+                        <foreach name="manufacture" item="ma">
+                            <div class="side_b">
+                                <div class="img_menu">
+                                    <a href="{:u('memberprod/memberinfo',array('id'=>$ma['id']))}" title="{$ma.mname}">
+                                        <img onerror="nofind();" src="{$ma.mlogo}" alt="{$ma.mname}" title="{$ma.mname}"/>
+                                    </a>
+                                </div>
+                                <div class="tips_side">
+                                    <a href="{:u('memberprod/memberinfo',array('id'=>$ma['id']))}" title="{$ma.mname}">{$ma.mname}</a>
+                                </div>
+                            </div>
+                		</foreach>
+                    </div>
+                </li>
+            </ul>
+            
+            <script type="text/javascript">
+        	$(".container ul.side_a li").mousemove(function(){
+				
+				$(this).find(".menu_side").show();
+				
+				var _top = $(this).position().top;
+				$("p.p_line").stop();
+				$("p.p_line").animate({top:_top},10);
+				
+				var index = $(this).index();
+				$(".menu_side").eq(index).show().siblings(".menu_side").hide();
+				$("p.p_line").show().siblings("p.p_line").hide();
+				
+			}).mouseout(function(){
+				
+				$(this).find(".menu_side").hide();
+				$("p.p_line").hide();
+			});
+        </script>
+            <!-- //left -->
+            <!-- center -->
+            <div class="banner">
+                <php>
+                    $mbersimg = sp_sql_mbersimg("field:id,simg,sname;order:createtime DESC;limit:6;");
+                    $m=0;
+                </php>
+                <foreach name="mbersimg" item="mbers">
+                <php>$m++;</php>
+                    <div class="img_ban" <php>if($m == 1){echo "style='display:block;'";}</php>>
+                        <a href="{:u('memberprod/activityinfo',array('id'=>$mbers['id']))}" title="{$mbers.sname}">
+                            <img onerror="nofind();" src="{$mbers.simg}" alt="{$mbers.sname}" title="{$mbers.sname}"/>
+                        </a>
+                    </div>
+                </foreach>
+                        
+
+                <ul class="list_b">
+                	<li class="bg_a"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <script type="text/javascript">
+					var tm=null;
+					
+					function newsScroll() {
+						if(img_ban.parentNode.scrollLeft!=(img_ban.clientWidth/2)){
+							img_ban.parentNode.scrollLeft++;
+						}else{
+							img_ban.parentNode.scrollLeft=0;
+						}
+					}
+           		 	window.onload=function() {
+            			
+            			tm=setInterval('newsScroll()',20);
+						
+            		}
+					
+                	$(".list_b li").mouseover(function(){
+						$(this).addClass("bg_a").siblings().removeClass("bg_a");
+						var index = $(this).index();
+						$(".img_ban").eq(index).show().siblings(".img_ban").hide();	
+						
+						tm=setInterval('newsScroll()',20);
+					}).mouseout(function(){
+						clearInterval(tm);	
+					});
+							
+                 </script>
+            </div>
+            <!-- //center -->
+            <!-- right -->
+            <div class="discount" style="padding-top:0;">
+            	<div class="title_dis">
+                	<h3><i class="fa fa-thumbs-up" style="margin-right:20px"></i>推薦產品</h3>
+                    <a href="product.html"> > </a>
+                </div>
+                <div class="content_dis">
+                
+                <php>
+                    $produce = sp_sql_produce("field:id,pimg,mname,comm;order:status DESC;limit:1;");
+                </php>
+                <foreach name="produce" item="tj">
+                	<div class="img_dis">
+                    <a href="{:u('memberprod/productinfo',array('id'=>$tj['id']))}" title="{$tj.mname}">
+                            <img onerror="nofind();" src="{$tj.pimg}" alt="{$tj.mname}" title="{$tj.mname}"/>
+                        </a>
+                    </div>
+                    <div class="msg_dis">
+						<a href="{:u('memberprod/productinfo',array('id'=>$tj['id']))}" title="{$tj.mname}">{$tj.mname}</a> 
+                        <p>{$tj.comm}</p>                    
+                    </div>
+                </foreach>
+                
+                
+                </div>
+            </div>
+            <!-- //right -->
+        </div>
+        
+        </div>

@@ -1,0 +1,114 @@
+<!DOCTYPE html><head>
+    <php>
+    $second=sp_get_term($term['parent']);
+    </php>
+    
+	<meta charset="UTF-8">
+	<title>{$post_title}┊{$term.name}┊{$second['name']}┊{$site_name}</title>
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="author" content="Powerless"> 
+		<meta name="keywords" content="{$post_keywords}" />
+		<meta name="description" content="{$post_excerpt}">
+		<tc_include file="Public:head" />
+		<style>
+			#article_content img{height:auto !important}
+		</style>
+	</head>
+<body class="">
+<tc_include file="Public:nav" />
+<div class="container tc-main">
+	<div class="row">
+		<div class="span9">
+			<ol class="breadcrumb">
+        <a href="{$site_host}">Home</a>┊
+        <a href="{:u('list/index',array('id'=>$term['parent']))}">{$second['name']}</a> ┊
+        <a href="{:u('list/index',array('id'=>$term['term_id']))}">{$term.name}</a> ┊
+        Content
+                    </ol>
+			<div class="tc-box first-box article-box">
+		    	<h2>{$post_title}</h2>
+		    	<div class="article-infobox">
+		    		<span>{$post_date} by {$user_nicename}</span>
+		    		<span>
+		    			<a href="javascript:;"><i class="fa fa-eye"></i><span>{$post_hits}</span></a>
+						<a href="{:U('article/do_like',array('id'=>$object_id))}" class="J_count_btn"><i class="fa fa-thumbs-up"></i><span class="count">{$post_like}</span></a>
+						<a href="{:U('user/favorite/do_favorite',array('id'=>$object_id))}" class="J_favorite_btn" data-title="{$post_title}" data-url="{:U('article/index',array('id'=>$tid))}" data-key="{:sp_get_favorite_key('posts',$object_id)}">
+							<i class="fa fa-star-o"></i>
+						</a>
+					</span>
+		    	</div>
+		    	<hr>
+		    	<div id="article_content"style="word-wrap: break-word;">
+		    	{$post_content}
+		    	</div>
+		    	<div style="width:830px; text-align:center; margin:0 auto; line-height:20px">
+                <b>Note：This article reprinted from {$post_keywords} ，Reprinted aim is to deliver more information, does not mean that this site agree with their views and be responsible for its authenticity. If infringement, please contact us and we will promptly deleted.</b>
+        		</div>
+		    	{:Comments("posts",$object_id)}
+		    </div>
+		</div>
+		<div class="span3">        	
+        	<div class="tc-box">
+	        	<div class="headtitle">
+	        		<h2>Hot Articles</h2>
+	        	</div>
+	        	<div class="ranking">
+	        		<php>
+						$hot_articles=sp_sql_posts("field:post_title,post_excerpt,tid,smeta;order:post_hits desc;limit:9;"); 
+					</php>
+		        	<ul class="unstyled">
+		        		<foreach name="hot_articles" item="vo">
+		        			<php>$top=$key<3?"top3":"";</php>
+							<li class="{$top}"><i>{$key+1}</i><a title="{$vo.post_title}" href="{:leuu('article/index',array('id'=>$vo['tid']))}">{$vo.post_title}</a></li>
+						</foreach>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="tc-box">
+	        	<div class="headtitle">
+	        		<h2>New entrants</h2>
+	        	</div>
+	        	<php>
+	        	$last_users=sp_get_users("field:*;limit:0,8;order:create_time desc;");
+	        	</php>
+	        	<ul class="list-unstyled tc-photos margin-bottom-30">
+	        		<foreach name="last_users" item="vo">
+                    <li>
+	                    <a href="{:U('user/index/index',array('id'=>$vo['id']))}">
+	                    <img alt="" src="{:U('user/public/avatar',array('id'=>$vo['id']))}">
+	                    </a>
+                    </li>
+                    </foreach>
+                </ul>
+			</div>
+			
+			<div class="tc-box">
+	        	<div class="headtitle">
+	        		<h2>Related News</h2>
+	        	</div>
+	        	<div class="comment-ranking">                        
+                  	<div class="ranking">
+                        <php>
+                        $tag='cid:'.$term["term_id"].';field:tid,post_title;limit:9;order:post_date desc';
+                        $correlation=sp_sql_posts($tag); 
+                        </php>
+                        <ul class="unstyled">
+                            <foreach name="correlation" item="vo">
+                                <php>$top=$key<3?"top3":"";</php>
+                                <li class="{$top}"><i>{$key+1}</i><a  href="{:U('article/index',array('id'=>$vo['tid']))}">{$vo.post_title}</a></li>
+                            </foreach>
+                        </ul>
+					</div>
+                </div>
+			</div>
+		</div>
+		
+	</div>
+              
+</div>
+<tc_include file="Public:footer"/>
+
+<tc_include file="Public:scripts"/>
+</body>
+</html>

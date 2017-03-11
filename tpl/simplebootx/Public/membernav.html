@@ -1,0 +1,71 @@
+<!-- header -->
+	<div id="header_1">
+    	<!-- top -->
+        <div id="top">
+        	<a href="http://en.ibtv.cc/"><div class="logo"></div></a>
+            <div id="search_results">
+            	<div id="search">
+                  <form action='search' method='post'>
+                    <div id="search_output">
+            <select name='type' class="sel_1" >
+
+                <option value='0'>Product</option>
+
+                <option value='1'>Members</option>
+
+            </select>  
+                    </div>  
+                    <div id="searchInput">                        
+                	<input name="sear" type="text" placeholder="input" maxlength=16  required class="txt_1"id="txt_1"/>
+                    
+                    <input type="submit" value="search" class="btn_1" />
+                    </div>
+                    
+                </form>
+                </div>
+                <dl class="keyword">
+                	<dt>Popular searches：</dt>
+                    <dd><a href="#">International Business Television</a></dd>
+                    <dd><a href="#">Hong Kong International Investment Promotion</a></dd>
+                </dl>
+            </div>
+            <if condition="sp_is_user_login()">
+            <div id="msg" style="width:30px; height:30px;margin-top:5px;">
+	            <if condition="empty($user['avatar'])">
+	            <img src="__TMPL__/Public/images/headicon.png" width="30" height="30"/>
+	            <else/>
+	            <img src="{:sp_get_user_avatar_url($user['avatar'])}" width="30" height="30"/>
+	        </if>
+            </div>
+            <div id="msg">
+	            <p>{$user.user_nicename}</p>
+	               <p><a href="{:u('user/center/index')}">Member Center</a></p>
+	               <p><a href="{:u('user/index/logout')}">Quit</a></p>
+	            </ul>
+             </div>
+	        <else/>
+            <div id="msg">
+            	<p><a href="{:u('user/login/index')}">Log in</a></p>
+                <p><a href="{:u('user/login/forgot_password')}">Forgot Password</p></a>
+                </div>
+	        </if>
+            
+        </div>
+        <!-- //top -->
+    </div>
+    <!-- //header -->
+    <!-- nav -->
+    <div id="nav_1">
+    	<div id="navigation">
+        	<div id="subnavtop">All Category</div>
+            <ul class="subnavleft">
+            	<li><a href="{:u('memberprod/index')}">Shop Home</a></li> 
+                <li><a href="{:u('memberprod/member')}">All Member</a></li> 
+                <li><a href="{:u('memberprod/product')}">All products</a></li> 
+                <li><a href="{:u('memberprod/activity')}">All activities</a></li> 
+                <li style="background:none;"><a href="{:u('memberprod/info')}">All info</a></li>    
+            </ul>
+            <div id="service">Phone：+86010-8766 5033</div>
+        </div>
+    </div>
+    <!-- //nav -->

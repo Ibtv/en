@@ -1,0 +1,57 @@
+<admintpl file="header" />
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap">
+  <ul class="nav nav-tabs">
+     <li>
+     <a href="{:U('members/wuflist')}">活动列表</a>
+     </li>
+     <li class="active">
+     <a href="{:U('members/addwuf')}">添加活动</a>
+     </li>
+  </ul>
+  <form class="J_ajaxForm" action="{:U('members/addimgact')}" method="post"   enctype="multipart/form-data" >
+    <div class="table_list">
+      <table width="900px" class="table table-hover">
+			  <tr>
+				<td width="200px" >活动名称:</td>
+				<td><input type="text" name="sname"></td>
+			  </tr>
+			  <tr>
+				<td width="200px" >活动图片:</td>
+				<td><input type="file" name="img"> <span style="color:red;">请选择jpg或png格式图片</span></td>
+			  </tr>
+			  <tr>
+				<td width="200px" >活动地点:</td>
+				<td><input type="text" name="addr" ></td>
+			  </tr>
+			  <tr>
+				<td width="200px" >活动时间:</td>
+				<td><input type="text" name="hdtime" ></td>
+			  </tr>
+			  <tr>
+				<td width="200px" >主办单位:</td>
+				<td>
+					<select name="zbdwei">
+						<option value="0">请选择会员</option>
+						<foreach name="mlist" item="vo">
+							<option value="{$vo.user_nicename}">{$vo.user_nicename}</option>
+						</foreach>
+					</select>
+				</td>
+			  </tr>
+			  <tr>
+				<td width="200px" >活动内容:</td>
+				<td><textarea name="comm" width="700px" height="300px"></textarea></td>
+			  </tr>
+          </table>
+     
+    </div>
+    <button type="submit" class="btn btn-primary btn_submit  J_ajax_submit_btn">提交</button>
+    <a class="btn" href='javascript:history.go(-1)'>返回</a>
+  </form>
+</div>
+<script src="__ROOT__/statics/js/common.js{$js_debug}"></script>
+
+</body>
+<!-- 由靳思远（以后简称J_SY）开发2014-9.25-10.5 -->
+</html>

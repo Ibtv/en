@@ -1,0 +1,44 @@
+<admintpl file="header" />
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap">
+  <ul class="nav nav-tabs">
+     <li>
+     <a href="{:U('message/messagelist')}">消息列表</a>
+     </li>
+     <li>
+     <a href="{:U('message/add')}">添加消息</a>
+     </li>
+     <li class="active">
+     <a>修改</a>
+     </li>
+  </ul>
+  <form class="J_ajaxForm" action="{:U('message/update')}" method="post"   enctype="multipart/form-data" >
+    <div class="table_list">
+      <table width="900px" class="table table-hover">
+			  <tr>
+			  	<input type="hidden" name="id" value="{$msg.id}" />
+				<td width="200px" >短消息标题:</td>
+				<td><input type="text" name="comm" value="{$msg.comm}"></td>
+			  </tr>
+			  <tr>
+			  	<td width="200px">短消息内容:</td>
+			  	<td><textarea name="title" width="200px" height="200px">{$vo.title}</textarea></td>
+			  </tr>
+        	  <tr>
+				<td width="200px">是否为推荐消息</td>
+				<td>
+					<input type="radio" checked="checked" name="status" value="0">不推荐
+					<input type="radio" name="status" value="1">推荐
+				</td>
+        	  </tr>
+          </table>
+     
+    </div>
+    <button type="submit" class="btn btn-primary btn_submit  J_ajax_submit_btn">更新</button>
+    <a class="btn" href='javascript:history.go(-1)'>返回</a>
+  </form>
+</div>
+<script src="__ROOT__/statics/js/common.js{$js_debug}"></script>
+
+</body>
+</html>

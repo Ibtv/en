@@ -1,0 +1,55 @@
+<admintpl file="header" />
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap">
+  <ul class="nav nav-tabs">
+     <li>
+     <a href="{:U('product/productlist')}">产品列表</a>
+     </li>
+     <li class="active">
+     <a>修改</a>
+     </li>
+  </ul>
+  <form class="J_ajaxForm" action="{:U('product/update')}" method="post"   enctype="multipart/form-data" >
+    <div class="table_list">
+      <table width="600px" class="table table-hover">
+			  <tr>
+                <input type="hidden" name="id" value="{$pros.id}">
+				<td width="200px" >会员产品名</td>
+				<td><input type="text" name="pname" value="{$pros.pname}"></td>
+			  </tr>
+			  <tr>
+				<td width="200px" >所属会员</td>
+				<td>{$pros.mname}</td>
+			  </tr>
+			  <tr>
+				<td width="200px" >产品图片</td>
+                <td><input type="file" name="img" value="{$pros.pimg}"><span style="color:red;">请选择jpg或png格式图片</span></td>
+			  </tr>
+			  <tr>
+				<td width="200px" >产品参考价格</td>
+				<td><input type="text" name="price" value="{$pros.price}"> <span style="color:red;">请填写数字，默认单位RMB</span></td>
+			  </tr>
+			  <tr>
+				<td width="200px" >产品介绍</td>
+				<td><textarea name="comm" width='350px' height='200px'>{$pros.comm}</textarea></td>
+			  </tr>
+              <tr>
+
+			  	<td width="200px">是否为推荐产品</td>
+			  	<td>
+			  		<input type="radio" checked="checked" name='status' value='0'>不推荐
+			  		<input type='radio' name='status' value='1' >推荐
+			  	</td>
+			  </tr>
+          </table>
+     
+    </div>
+    <button type="submit" class="btn btn-primary btn_submit  J_ajax_submit_btn">更新</button>
+    <a class="btn" href='javascript:history.go(-1)'>返回</a>
+  </form>
+</div>
+<script src="__ROOT__/statics/js/common.js{$js_debug}"></script>
+
+</body>
+<!-- 靳思远（以后简称J_SY）开发2014-9.25-10.5 -->
+</html>

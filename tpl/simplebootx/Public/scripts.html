@@ -1,0 +1,56 @@
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54acf10b5c282aae" async="async"></script>
+    <script src="__ROOT__/statics/js/jquery.js"></script>
+	<script>
+	$(function(){
+		$.post("{:U('user/index/is_login')}",{},function(data){
+			if(data.status==1){
+				if(data.user.avatar){
+					$("#main-menu-user .headicon").attr("src",data.user.avatar.indexOf("http")==0?data.user.avatar:"__UPLOAD__avatar/"+data.user.avatar);
+				}
+				$("#main-menu-user .user-nicename").text(data.user.user_nicename!=""?data.user.user_nicename:data.user.user_login);
+				$("#main-menu-user li.user.login").show();
+			}
+			if(data.status==0){
+				$("#main-menu-user li.user.offline").show();
+			}
+		});
+		;(function($){
+			$.fn.totop=function(opt){
+				var scrolling=false;
+				return this.each(function(){
+					var $this=$(this);
+					$(window).scroll(function(){
+						if(!scrolling){
+							var sd=$(window).scrollTop();
+							if(sd>100){
+								$this.fadeIn();
+							}else{
+								$this.fadeOut();
+							}
+						}
+					});
+					
+					$this.click(function(){
+						scrolling=true;
+						$('html, body').animate({
+							scrollTop : 0
+						}, 500,function(){
+							scrolling=false;
+							$this.fadeOut();
+						});
+					});
+				});
+			};
+		})(jQuery); 
+		
+		$("#backtotop").totop();
+		
+		
+	});
+	
+	function nofind(){
+	var img=event.srcElement;
+	img.src="__TMPL__Public/images/default_tupian1.png";
+	img.onerror=null; 
+	}
+	</script>

@@ -1,0 +1,76 @@
+<admintpl file="header" />
+<body class="J_scroll_fixed">
+  <div class="wrap J_check_wrap">
+    <ul class="nav nav-tabs">
+      <li>
+      <a href="{:U('members/memberslist')}">会员列表</a>
+      </li>
+      <li class="active">
+      <a>修改</a>
+      </li>
+    </ul>
+    <form class="J_ajaxForm" action="{:U('members/update')}" method="post"   enctype="multipart/form-data" >
+      <div class="table_list">
+        <table width="900px" class="table table-hover">
+          <tr>
+            <input type="hidden" name="id" value="{$mm.id}" />
+            <td width="200px" >会员名称:</td>
+            <td><input type="text" name="mname" value="{$mm.mname}"></td>
+          </tr>
+          <tr>
+            <td width="200px" >所属行业:</td>
+            <td>
+              <select name="htypeid">
+                <option value='{$mm.htypeid}'>{$mm.htypename}</option>
+                <option value='1'>Food</option>
+                <option value='2'>Energy&Minerals</option>
+                <option value='3'>Petrochemical</option>
+                <option value='4'>Building</option>
+                <option value='5'>Garment</option>
+                <option value='6'>IT</option>
+                <option value='7'>Culture&Sport</option>
+                <option value='8'>Manufacture</option>
+              </select>
+              <td>
+              </tr>
+              <tr>
+                <td width="200px" >会员logo:</td>
+                <td><input type="file" name="img" value="{$mm.mlogo}"> <span style="color:red;">请选择jpg或png格式图片</span></td>
+              </tr>
+              <tr>
+                <td width="200px" >公司地址:</td>
+                <td><input type="text" name="address" value="{$mm.addr}"></td>
+              </tr>
+              <tr>
+                <td width="200px" >联系电话:</td>
+                <td><input type="text" name="tel" value="{$mm.tel}"></td>
+              </tr>
+              <tr>
+                <td width="200px" >邮箱:</td>
+                <td><input type="text" name="email" value="{$mm.memail}"></td>
+              </tr>
+              <tr>
+                <td width="200px" >公司简介:</td>
+                <td><textarea name="comm" width="700px" height="300px" value="{$mm.comm}"></textarea></td>
+              </tr>
+              <!--
+              <tr>
+                <td width="200px">是否为推荐会员</td>
+                <td>
+                  <input type="radio" checked="checked" name="ustatus" value="0">不推荐
+                  <input type="radio" name="ustatus" value="1">推荐
+                </td>
+              </tr>
+              -->
+            </table>
+
+          </div>
+          <button type="submit" class="btn btn-primary btn_submit  J_ajax_submit_btn">更新</button>
+          <a class="btn" href='javascript:history.go(-1)'>返回</a>
+        </form>
+      </div>
+      <script src="__ROOT__/statics/js/common.js{$js_debug}"></script>
+
+    </body>
+    <!-- 由靳思远（以后简称J_SY）开发2014-9.25-10.5 -->
+</html>

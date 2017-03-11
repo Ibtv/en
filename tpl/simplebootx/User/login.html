@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{$site_name}</title>
+<meta name="keywords" content="{$site_seo_keywords}" />
+<meta name="description" content="{$site_seo_description}">
+<meta name="author" content="ThinkCMF">
+<tc_include file="Public:head" />
+</head>
+
+<body class="body-white">
+	<tc_include file="Public:nav" />
+
+	<div class="container tc-main">
+		<div class="row">
+			<div class="span6 offset3">
+				<h2 class="text-center">User Login</h2>
+				<form class="form-horizontal J_ajaxForms" action="{:U('user/login/dologin')}" method="post">
+					<div class="control-group">
+						<label class="control-label" for="input_username">Account number</label>
+						<div class="controls">
+							<input type="text" id="input_username" name="username" placeholder="Please enter your username or email" class="span3" maxlength="16">
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="input_password">Password</label>
+						<div class="controls">
+							<input type="password" id="input_password" name="password" placeholder="Please enter a password" class="span3" maxlength="32">
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="input_verify">Verification code</label>
+						<div class="controls">
+							<input type="text" id="input_verify" name="verify"  placeholder="Please enter the verification code" class="span3" maxlength="4">
+						</div>
+					</div>
+                    <div class="control-group">
+                    	<div class="controls">
+							{:sp_verifycode_img('code_len=4&font_size=15&width=100&height=35&charset=1234567890')}
+                        </div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="input_repassword"></label>
+						<div class="controls">
+							<label class="checkbox persistent"><input type="checkbox" name="terms" value="1">I agree
+								<a href="#">Compliance with laws and regulations</a></label>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="input_repassword"></label>
+						<div class="controls">
+							<button class="btn btn-primary J_ajax_submit_btn" type="submit">Determine</button>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="input_repassword"></label>
+						<div class="controls">
+							<ul class="inline">
+								<li><a href="{:U('user/register/index')}">Sign up now</a></li>
+								<li><a href="{:U('user/login/forgot_password')}">Forgot Password</a></li>
+							</ul>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<tc_include file="Public:footer" />
+
+	</div>
+	<!-- /container -->
+
+	<tc_include file="Public:scripts" />
+</body>
+</html>

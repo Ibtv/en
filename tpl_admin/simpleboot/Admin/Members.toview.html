@@ -1,0 +1,62 @@
+<admintpl file="header" />
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap">
+  <ul class="nav nav-tabs">
+     <li class="active">
+     <a href="{:U('members/toaudit')}">待审核会员列表</a>
+     </li>
+  </ul>
+  <form class="J_ajaxForm" action="{:U('members/addimgact')}" method="post"   enctype="multipart/form-data" >
+    <div class="table_list">
+      <table width="900px" class="table table-hover">
+        <tr>
+        <td width="200px" >会员所属行业:</td>
+        <td>{$msg['htypename']}</td>
+        </tr>
+        <tr>
+        <td width="200px" >会员名称:</td>
+        <td>{$msg['mname']}</td>
+        </tr>
+        <tr>
+        <td width="200px" >官方网站地址:</td>
+        <td>{$msg['url']}</td>
+        </tr>
+        <tr>
+        <td width="200px" >联系人姓名:</td>
+        <td>{$msg['lxiname']}</td>
+        </tr>
+        <tr>
+        <td width="200px" >联系手机:</td>
+        <td>{$msg['tel']}</td>
+        </tr>
+        <tr>
+        <td width="200px" >营业执照:</td>
+        <td><img src="{$msg['license']}" /></a></td>
+        </tr>
+        <tr>
+        <td width="200px" >营业注册号:</td>
+        <td>{$msg['numblicense']}</td>
+        </tr>
+        <tr>
+        <td width="200px" >企业公函:</td>
+        <td><img src="{$msg['mletter']}"></td>
+        </tr>
+        <tr>
+        <td width="200px" >其他材料1:</td>
+        <td><img src="{$msg['othero']}"></td>
+        </tr>
+        <tr>
+        <td width="200px" >其他材料2:</td>
+        <td><img src="{$msg['othert']}"></td>
+        </tr>
+        </table>
+     
+    </div>
+  <a href="{:U('members/passaudit',array('id'=>$msg['id'],'mid'=>$msg['mid']))}" class="J_ajax_dialog_btn" data-msg="您确定要通过审核吗？" >通过审核</a>
+  </form>
+</div>
+<script src="__ROOT__/statics/js/common.js{$js_debug}"></script>
+
+</body>
+<!-- 由靳思远（以后简称J_SY）开发2014-9.25-10.5 -->
+</html>

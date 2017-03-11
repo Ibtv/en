@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{$site_name}</title>
+<meta name="keywords" content="{$site_seo_keywords}" />
+<meta name="description" content="{$site_seo_description}">
+<meta name="author" content="ThinkCMF">
+<tc_include file="Public:head" />
+<script type="text/javascript">
+	function isover(obj){
+		var imgs = obj.id;
+		obj.innerHTML = "<img width='100' height='80' src='"+imgs+"'/>";
+	}
+	function isout(obj){
+		var pnames = obj.title;
+		obj.innerHTML = pnames;
+	}
+</script>
+</head>
+
+<body class="body-white" id="top">
+	<tc_include file="Public:nav" />
+
+		<div class="container tc-main">
+                <div class="row">
+                    <div class="span3">
+	                    <tc_include file="Public:usernav"/>
+                    </div>
+                    <div class="span9">
+                           <div class="tabs">
+                               <ul class="nav nav-tabs">
+                                   <li class="active"><a href="#one" data-toggle="tab"><i class="fa fa-comments-o"></i> Product List</a></li>
+                               </ul>
+                               <div class="tab-content">
+                                   <div class="tab-pane active" id="one">
+                                   		<table class="table table-bordered table-striped table-hover">
+									    <thead>
+									      <tr>
+									        <th width="50">Product ID</th>
+									        <th style="text-align: center">Product Name</th>
+									        <th style="text-align: center">Product Image</th>
+									        <th width="60">Price</th>
+									        <th style="text-align: center">Product Description</th>
+									        <!-- <th width="60">是否推荐</th> -->
+									        <th style="text-align: center">Added time</th>
+									        <th style="text-align: center">Operating</th>
+									      </tr>
+									    </thead>
+									    <tbody>
+									    <foreach name="listprod" item="vo">
+									      <tr>
+									        <td>{$vo.id}</td>
+									        <td>{$vo.pname}</td>
+									        <td><img src="{$vo.pimg}"/></td>
+									        <td>{$vo.price}</td>
+									        <td>{$vo.comm}</td>
+									        <td>{$vo.createtime}</td>
+									        <td>
+									        	<a href="{:U('product/edit',array('id'=>$vo['id']))}" target="_blank">Modification</a>|
+		            							<a href="{:U('product/delete',array('id'=>$vo['id']))}" >Delete</a>
+									        </td>
+									      </tr>
+									    </foreach>
+									    </tbody>
+									  </table>
+                                   </div>
+                                   
+                                   <div class="pager">{$pager}</div>
+                               </div>							
+                           </div>
+                    </div>
+                </div><tc_include file="Public:shopfooter"/>
+
+	</div>
+	<!-- /container -->
+
+	<tc_include file="Public:scripts" />
+</body>
+</html>

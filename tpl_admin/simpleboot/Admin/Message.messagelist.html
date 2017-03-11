@@ -1,0 +1,44 @@
+<admintpl file="header" />
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap">
+
+  <ul class="nav nav-tabs">
+     <li class="active">
+     <a href="{:U('message/messagelist')}">消息列表</a>
+     </li>
+     <li>
+     <a href="{:U('message/add')}">添加消息</a>
+     </li>
+  </ul>
+  <form class="J_ajaxForm" action="" method="post">
+    <div class="table_list">
+      <table width="100%" class="table table-hover">
+        <thead>
+	          <tr>
+              <th width="120">&nbsp;&nbsp;&nbsp;&nbsp;ID</th>
+              <th>短消息内容</th>
+              <th width="120"><span>&nbsp;&nbsp;&nbsp;&nbsp;发布时间</span></th>
+	            <th width="120"><span>&nbsp;&nbsp;&nbsp;&nbsp;修改时间</span></th>
+	            <th width="120">操作</th>
+	          </tr>
+        </thead>
+        	<foreach name="messagelist" item="vo">
+	        	<tr>
+                <td width="120">{$vo.id}</td>
+                <td width="200">{$vo.comm}</td>
+                <td>{$vo.createtime}</td>
+		            <td>{$vo.datetime}</td>
+		            <td>
+		            	<a href="{:U('message/edit',array('id'=>$vo['id']))}">修改</a>|
+		            	<a href="{:U('message/delete',array('id'=>$vo['id']))}" class="J_ajax_del" >删除</a>
+					      </td>
+	          </tr>
+          </foreach>
+      </table>
+    </div>
+  </form>
+</div>
+<script src="__ROOT__/statics/js/common.js{$js_debug}"></script>
+
+</body>
+</html>
