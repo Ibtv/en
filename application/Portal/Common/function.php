@@ -20,6 +20,7 @@ function sp_sql_posts($tag,$where=array()){
 	$limit = !empty($tag['limit']) ? $tag['limit'] : '';
 	$order = !empty($tag['order']) ? $tag['order'] : 'post_date';
 
+
 	//根据参数生成查询条件
 	$where['status'] = array('eq',1);
 	$where['post_status'] = array('eq',1);
@@ -35,10 +36,9 @@ function sp_sql_posts($tag,$where=array()){
 
 
 	$join = "".C('DB_PREFIX').'posts as b on a.object_id =b.id';
-	$join2= "".C('DB_PREFIX').'users as c on b.post_author = c.id';
 	$rs= M("TermRelationships");
 
-	$posts=$rs->alias("a")->join($join)->join($join2)->field($field)->where($where)->order($order)->limit($limit)->select();
+	$posts=$rs->alias("a")->join($join)->field($field)->where($where)->order($order)->limit($limit)->select();
 	return $posts;
 }
 
@@ -104,9 +104,8 @@ function sp_sql_posts_paged($tag,$pagesize=20,$pagetpl='{first}{prev}{liststart}
 	}
 
 	$join = "".C('DB_PREFIX').'posts as b on a.object_id =b.id';
-	$join2= "".C('DB_PREFIX').'users as c on b.post_author = c.id';
 	$rs= M("TermRelationships");
-	$totalsize=$rs->alias("a")->join($join)->join($join2)->field($field)->where($where)->count();
+	$totalsize=$rs->alias("a")->join($join)->field($field)->where($where)->count();
 	
 	import('Page');
 	if ($pagesize == 0) {
@@ -116,7 +115,7 @@ function sp_sql_posts_paged($tag,$pagesize=20,$pagetpl='{first}{prev}{liststart}
 	$page = new Page($totalsize,$pagesize);
 	$page->setLinkWraper("li");
 	$page->__set("PageParam", $PageParam);
-	$page->SetPager('default', $pagetpl, array("listlong" => "10", "first" => "Home", "last" => "Last Page", "prev" => "Page Up", "next" => "Page Down", "list" => "*", "disabledclass" => ""));
+	$page->SetPager('default', $pagetpl, array("listlong" => "6", "first" => "首页", "last" => "尾页", "prev" => "上一页", "next" => "下一页", "list" => "*", "disabledclass" => ""));
 	$posts=$rs->alias("a")->join($join)->join($join2)->field($field)->where($where)->order($order)->limit($page->firstRow . ',' . $page->listRows)->select();
 
 	$content['posts']=$posts;
@@ -156,9 +155,8 @@ function sp_sql_posts_paged_bykeyword($keyword,$tag,$pagesize=20,$pagetpl='{firs
 	}
 
 	$join = "".C('DB_PREFIX').'posts as b on a.object_id =b.id';
-	$join2= "".C('DB_PREFIX').'users as c on b.post_author = c.id';
 	$rs= M("TermRelationships");
-	$totalsize=$rs->alias("a")->join($join)->join($join2)->field($field)->where($where)->count();
+	$totalsize=$rs->alias("a")->join($join)->field($field)->where($where)->count();
 	import('Page');
 	if ($pagesize == 0) {
 		$pagesize = 20;
@@ -228,10 +226,9 @@ function sp_sql_post($tid,$tag){
 
 
 	$join = "".C('DB_PREFIX').'posts as b on a.object_id =b.id';
-	$join2= "".C('DB_PREFIX').'users as c on b.post_author = c.id';
 	$rs= M("TermRelationships");
 
-	$posts=$rs->alias("a")->join($join)->join($join2)->field($field)->where($where)->find();
+	$posts=$rs->alias("a")->join($join)->field($field)->where($where)->find();
 	return $posts;
 }
 
